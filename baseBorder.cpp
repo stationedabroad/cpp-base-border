@@ -37,19 +37,17 @@ int main()
         while(c != width) {
             if(r == 0 || r == rows - 1 || c == 0 || c == width - 1) {
                 cout << '*';
-                ++c;
             } else if(r == pad + 1 && c == pad + 1) {
                 cout << ack;
-                c += ack.size();
             } else {
-                cout << ' ';
-                ++c;
-                // if(r == writeRow && c > pad + 1 && c <= ack.size() + pad) {
-
-                // } else {
-                //     cout << ' ';
-                // }
+                if(r == writeRow && c > pad + 1 && c <= ack.size() + pad) {
+                    // do nothing - not great!
+                } else {
+                    cout << ' ';
+                }
             }
+
+            ++c;
         }
         cout << endl ;
         // after this runs the invariant becomes true
